@@ -3,6 +3,9 @@
   <%= pluralize @restaurant.reviews.size, "review" %>
 </h2>
 
+<%= render 'reviews/new', restaurant: @restaurant, review: @review %>
+
+REVIEWS
 <div id="reviews">
   <% if @restaurant.reviews.blank? %>
     Be the first to leave a review for <%= @restaurant.name %>

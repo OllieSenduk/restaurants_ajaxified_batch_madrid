@@ -1,0 +1,14 @@
+function addToDom() {
+    <% if @review.errors.any? %>
+        const form = document.querySelector('#new_review')
+        form.innerHTML = '<%= j render "reviews/new", restaurant: @restaurant, review: @review %>'
+    <% else %>
+        const container = document.querySelector('#reviews')
+        reviewContent = "<%= @review.content %>"
+        container.insertAdjacentHTML('beforeend', reviewContent)
+        const form = document.querySelector('#new_review')
+        form.innerHTML = '<%= j render "reviews/new", restaurant: @restaurant, review: Review.new %>'
+    <% end %>
+}
+
+addToDom()
